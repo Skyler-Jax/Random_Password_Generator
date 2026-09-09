@@ -1,11 +1,10 @@
 /*****************************
  * Random Password Generator *
- *      Version 0.1.1        *
+ *      Version 0.1.3        *
  *   by Skyler Jax Hansen    *
  *      Sep. 8th, 2026       *
  *****************************/
 
-#include <iostream>
 #include "variables.h"
 #include "functions.h"
 #include "CLI11.hpp"
@@ -31,13 +30,13 @@ int main(int argc, char** argv) {
         // Activates Interactive Mode loop
         programActive = true;
 
-        // Sets generator output for fancy Interactive Mode display
-        modeSelect = true;
-
         // Remain in Interactive Mode loop until quitting is selected
         while (programActive) runInteractiveMode();
+
         return 0;
+
     } else {
+
         // Set up CLI11 with program arguments
         CLI::App rpg{"Random Password Generator"};
         rpg.add_flag("-i,--instant", instantOut, "Instantly generate ten passwords with mixed complexity");

@@ -1,6 +1,6 @@
 /*****************************
  * Random Password Generator *
- *      Version 0.1.1        *
+ *      Version 0.1.3        *
  *   by Skyler Jax Hansen    *
  *      Sep. 8th, 2026       *
  *****************************/
@@ -12,7 +12,9 @@
 
 using namespace std;
 
+// Mersenne Twister generation engine
 void core::generatePassword() {
+
     // 1. Build the master pool based on user choices
     string masterPool = POOL_LETTERS;
     if (useNumbers) masterPool += POOL_NUMBERS;

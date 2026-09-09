@@ -1,6 +1,6 @@
 /*****************************
  * Random Password Generator *
- *      Version 0.1.1        *
+ *      Version 0.1.3        *
  *   by Skyler Jax Hansen    *
  *      Sep. 8th, 2026       *
  *****************************/
@@ -32,4 +32,4 @@ inline string finalPassword;    // The generated output
  *******************/
 inline const string POOL_LETTERS = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
 inline const string POOL_NUMBERS = "0123456789";
-inline const string POOL_SYMBOLS = "`~!@#$%^&*()-_+={}?<>,.";
+inline const string POOL_SYMBOLS = " `~!@#$%^&*()-_+={}?<>,.";
