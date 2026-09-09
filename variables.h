@@ -1,6 +1,6 @@
 /*****************************
  * Random Password Generator *
- *      Version 0.0.1        *
+ *      Version 0.1.0        *
  *   by Skyler Jax Hansen    *
  *      Sep. 8th, 2026       *
  *****************************/
@@ -16,10 +16,12 @@ using namespace std;
  ****************************/
 inline int passLength;          // Default length
 inline int outputQty;           // How many passwords to generate
-inline bool useNumbers;         // Complexity flag
-inline bool useSymbols;         // Complexity flag
+inline bool useSecurity;        // Wipe generated passwords from console after CLI Instant Mode
+inline bool useNumbers;         // Use the numbers pool for password generation
+inline bool useSymbols;         // Use the symbols pool for password generation
 inline bool programActive;      // Program loop enabled
 inline bool cleanStart;         // If loop is starting clean or regenerating
+inline bool modeSelect;         // Bool flag to set output for Interactive Mode or CLI Instant Mode
 inline string optionInput;      // Option entered by user
 inline string omitChars;        // Characters to ban
 inline string finalPassword;    // The generated output

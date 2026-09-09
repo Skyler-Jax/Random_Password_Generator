@@ -1,6 +1,6 @@
 /*****************************
  * Random Password Generator *
- *      Version 0.0.1        *
+ *      Version 0.1.0        *
  *   by Skyler Jax Hansen    *
  *      Sep. 8th, 2026       *
  *****************************/
@@ -19,13 +19,45 @@ using namespace core;
 void app::initVariables() {
     passLength  = 12;
     outputQty   = 10;
+    useSecurity = false;
     useNumbers  = false;
     useSymbols  = false;
     cleanStart  = true;
+    modeSelect  = false;
     optionInput.clear();
     omitChars.clear();
     finalPassword.clear();
 
+}
+
+/*
+ * This function is the core of Instant mode. It handles running the generator
+ * with program defaults or settings from arguments passed at launch. The
+ * password(s) are generated directly to the console, then handles wiping the
+ * passwords from the console for extra security if opted for
+ */
+void app::runInstantMode() {
+
+    // Simple program header and optionally activate secondary screen buffer for Security Mode
+    if (useSecurity) {
+        cout << CONSOLE_BUFF2;
+        cout << TEXT_FG_AMBER << "Random Password Generator" << endl;
+        cout << "     (Security Mode)" << TEXT_RESET <<endl;
+    } else {
+        cout << TEXT_FG_AMBER << "Random Password Generator" << TEXT_RESET <<endl;
+    }
+
+    // Generate requested number of password suggestions
+    for (int i = 1; i <= outputQty; i++) {
+        generatePassword();
+        showResult(i);
+    }
+
+    // Wipe the passwords from the console and restore primary buffer for Security Mode
+    if (useSecurity) {
+        wipeResults();
+        cout << CONSOLE_BUFF1;
+    }
 }
 
 /*

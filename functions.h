@@ -1,6 +1,6 @@
 /*****************************
  * Random Password Generator *
- *      Version 0.0.1        *
+ *      Version 0.1.0        *
  *   by Skyler Jax Hansen    *
  *      Sep. 8th, 2026       *
  *****************************/
@@ -17,6 +17,7 @@ using namespace std;
  ************************/
 namespace app {
     void initVariables();                   // Handles initializing program variables
+    void runInstantMode();                  // Handles instant console output
     void runInteractiveMode();              // Handles step-by-step console prompts
     void getLength();                       // Prompt user for desired password length
     void getUseNumbers();                   // Prompt user whether or not to use numbers
@@ -34,4 +35,5 @@ namespace display {
     void clearScreen();                     // Handles clearing the screen and redrawing key elements
     void drawHeader();                      // Draws program header on screen
     void showResult(int passwdNumber);      // Prints the final generated password
+    void wipeResults();                     // Wipe results from console for security
 }
