@@ -1,6 +1,6 @@
 /*****************************
  * Random Password Generator *
- *      Version 0.1.0        *
+ *      Version 0.1.1        *
  *   by Skyler Jax Hansen    *
  *      Sep. 8th, 2026       *
  *****************************/
@@ -17,8 +17,9 @@ using namespace core;
 
 // Function to initialize program variables on initial execution or reset
 void app::initVariables() {
-    passLength  = 12;
+    passLength  = 16;
     outputQty   = 10;
+    instantOut  = false;
     useSecurity = false;
     useNumbers  = false;
     useSymbols  = false;
@@ -37,6 +38,7 @@ void app::initVariables() {
  * passwords from the console for extra security if opted for
  */
 void app::runInstantMode() {
+    cout << CONSOLE_CLEAR << flush;
 
     // Simple program header and optionally activate secondary screen buffer for Security Mode
     if (useSecurity) {
@@ -58,6 +60,8 @@ void app::runInstantMode() {
         wipeResults();
         cout << CONSOLE_BUFF1;
     }
+
+    cout << CURSOR_SHOW;
 }
 
 /*

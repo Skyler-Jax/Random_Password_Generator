@@ -1,6 +1,6 @@
 /*****************************
  * Random Password Generator *
- *      Version 0.1.0        *
+ *      Version 0.1.1        *
  *   by Skyler Jax Hansen    *
  *      Sep. 8th, 2026       *
  *****************************/
@@ -40,15 +40,21 @@ int main(int argc, char** argv) {
     } else {
         // Set up CLI11 with program arguments
         CLI::App rpg{"Random Password Generator"};
-        rpg.add_option("-l,--length", passLength, "Length of password (1-64 characters)");
+        rpg.add_flag("-i,--instant", instantOut, "Instantly generate ten passwords with mixed complexity");
+        rpg.add_option("-l,--length", passLength, "Length of password (1-64 characters, default is 16)");
         rpg.add_flag("-n,--numbers", useNumbers, "Include numbers in output (Default is no)");
         rpg.add_flag("-s,--symbols", useSymbols, "Include symbols in output (Default is no)");
         rpg.add_option("-o,--omit", omitChars, "Characters to exclude (Default is none)");
         rpg.add_option("-q,--quantity", outputQty, "Amount to generate (Default is 10)");
-        rpg.add_flag("-w,--wipe", useSecurity, "Wipe results after generation (Default is disabled)");
+        rpg.add_flag("-S,--security", useSecurity, "Wipe results after generation (Default is disabled)");
 
         // Parse the arguments and set relevant variables
         CLI11_PARSE(rpg, argc, argv);
+
+        if (instantOut) {
+            useNumbers  = true;
+            useSymbols  = true;
+        }
 
         // Run generator in Instant Mode
         runInstantMode();
