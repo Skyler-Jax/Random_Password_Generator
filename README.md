@@ -29,11 +29,7 @@ Interactive Mode will always generate a batch of 10 passwords for the given crit
 *  Enter 'Q' to quit the program and return to the terminal.
 
 ## Instant Mode
-<<<<<<< HEAD
 Executing the binary with CLI arguments triggers instant mode for fast, more granular control.
-=======
-Executing the binary with CLI arguments triggers instant mode for fast, more granular control
->>>>>>> 39390ab911e7fa67550b580831795c390596fc9e
 
 Available arguments are:
 *  -?, --help     - Displays all arguments and how to use them.
